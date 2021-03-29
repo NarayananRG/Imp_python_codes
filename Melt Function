@@ -1,0 +1,22 @@
+### Melt Function ###
+
+import pandas as pd
+
+df=pd.read_csv("C:/Users/LA953466/Music/pydatadc_2018-tidy-master/data/country_timeseries.csv")
+
+
+#print(df)
+
+#melted_df=pd.melt(df,id_vars='religion',var_name='income',value_name='count')
+#print(melted_df.head())
+
+#melted_df=pd.melt(df,id_vars=['year','artist','track','time','date.entered'],var_name='week')
+
+melted_df=pd.melt(df,id_vars=['Date','Day'],var_name='casesdeaths',value_name='count')
+melted_df[['cases/deaths','country']]=melted_df.casesdeaths.str.split('_',expand=True)
+  
+
+
+
+
+print(melted_df)  
