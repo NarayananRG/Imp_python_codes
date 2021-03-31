@@ -1,0 +1,20 @@
+from fpdf import FPDF
+from PIL import Image
+
+pdf=FPDF()
+pdf.add_page()
+# creating a new image file with light blue color with A4 size dimensions using PIL
+img = Image.new('RGB', (250,2970), "#00005B" )
+img.save('blue_colored.png')
+
+# adding image to pdf page that e created using fpdf
+pdf.image('blue_colored.png', x = 0, y = 0, w = 250, h = 297, type = '', link = '')
+  
+
+pdf.set_fill_color(248,245,235)
+pdf.set_font('Arial','i',16)
+
+pdf.cell(80)
+pdf.cell(w=100,h=10,txt='Hello Wrold!',border=1,ln=2,align='R',fill=True)
+# save the pdf with name .pdf
+pdf.output("D:/New folder/FIRSTPDF.pdf",'F')   
